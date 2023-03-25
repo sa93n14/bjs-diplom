@@ -36,9 +36,10 @@ money.addMoneyCallback = function(data) {
     ApiConnector.addMoney(data, response => {
         if(response.success === true) {
             ProfileWidget.showProfile(response.data);
-            money.setMessage(isSuccess, message);
         } else {
-            money.setMessage(isSuccess, message);
+            console.log(response.error);
+            alert(response.error);
+            
         }
     })
 }
@@ -47,9 +48,10 @@ money.conversionMoneyCallback = function(data) {
     ApiConnector.convertMoney(data, response => {
         if(response.success === true) {
             ProfileWidget.showProfile(response.data);
-            money.setMessage(isSuccess, message);
         } else {
-            money.setMessage(isSuccess, message);
+            console.log(response.error);
+            alert(response.error);
+            
         }
     })
 }
@@ -57,10 +59,11 @@ money.conversionMoneyCallback = function(data) {
 money.sendMoneyCallback = function(data) {
     ApiConnector.transferMoney(data, response => {
         if(response.success === true) {
-            ProfileWidget.showProfile(response.data);
-            money.setMessage(isSuccess, message);
+            ProfileWidget.showProfile(response.data);           
         } else {
-            money.setMessage(isSuccess, message);
+            console.log(response.error);
+            alert(response.error);
+            
         }
     })
 }
@@ -80,10 +83,11 @@ favorite.addUserCallback = function(data) {
         if(response.success === true) {
             favorite.clearTable();
             favorite.fillTable(response.data);
-            money.updateUsersList(response.data);
-            money.setMessage(isSuccess, message);
+            money.updateUsersList(response.data);           
         } else {
-            money.setMessage(isSuccess, message);
+            console.log(response.error);
+            alert(response.error);
+            
         }
     })
 }
@@ -94,9 +98,10 @@ favorite.removeUserCallback = function(data) {
             favorite.clearTable();
             favorite.fillTable(response.data);
             money.updateUsersList(response.data);
-            favorite.setMessage(isSuccess, message);
         } else {
-            favorite.setMessage(isSuccess, message);
+            console.log(response.error);
+            alert(response.error);
+            
         }
     })
 }
