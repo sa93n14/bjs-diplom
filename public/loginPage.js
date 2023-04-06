@@ -7,9 +7,8 @@ user1.loginFormCallback = function(data) {
         if(response.success === true) {
             location.reload();
         } else {
-            // user1.setLoginErrorMessage(message);
             console.log(response.error);
-            alert(response.error);
+            user1.setLoginErrorMessage(response.error)
             
         }
     })
@@ -20,10 +19,8 @@ user1.registerFormCallback = function(data) {
         if(response.success === true) {
             location.reload();
         } else {
-            // user1.setRegisterErrorMessage(message);
+            user1.setRegisterErrorMessage(response.error);
             console.log(response.error);
-            alert(response.error);
-            
         }
     })
 }

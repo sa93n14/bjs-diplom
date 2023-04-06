@@ -36,10 +36,9 @@ money.addMoneyCallback = function(data) {
     ApiConnector.addMoney(data, response => {
         if(response.success === true) {
             ProfileWidget.showProfile(response.data);
+            money.setMessage(true, 'Баланс пополнен')
         } else {
-            console.log(response.error);
-            alert(response.error);
-            
+            money.setMessage(false, response.error);
         }
     })
 }
@@ -48,10 +47,9 @@ money.conversionMoneyCallback = function(data) {
     ApiConnector.convertMoney(data, response => {
         if(response.success === true) {
             ProfileWidget.showProfile(response.data);
+            money.setMessage(true, 'Конвертация прошла успешна')
         } else {
-            console.log(response.error);
-            alert(response.error);
-            
+            money.setMessage(false, response.error);
         }
     })
 }
@@ -60,10 +58,9 @@ money.sendMoneyCallback = function(data) {
     ApiConnector.transferMoney(data, response => {
         if(response.success === true) {
             ProfileWidget.showProfile(response.data);           
+            money.setMessage(true, 'Перевод средств прошел успешно')
         } else {
-            console.log(response.error);
-            alert(response.error);
-            
+            money.setMessage(false, response.error);
         }
     })
 }
@@ -84,10 +81,9 @@ favorite.addUserCallback = function(data) {
             favorite.clearTable();
             favorite.fillTable(response.data);
             money.updateUsersList(response.data);           
+            favorite.setMessage(true, 'Пользователь добавлен')
         } else {
-            console.log(response.error);
-            alert(response.error);
-            
+            favorite.setMessage(false, response.error); 
         }
     })
 }
@@ -98,10 +94,9 @@ favorite.removeUserCallback = function(data) {
             favorite.clearTable();
             favorite.fillTable(response.data);
             money.updateUsersList(response.data);
+            favorite.setMessage(true, 'Пользователь удален')
         } else {
-            console.log(response.error);
-            alert(response.error);
-            
+            favorite.setMessage(false, response.error); 
         }
     })
 }
